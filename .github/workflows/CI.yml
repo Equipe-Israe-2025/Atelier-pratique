@@ -35,7 +35,8 @@ jobs:
       - name: Lancer les tests backend
         run: |
           cd backend
-          DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_NAME=testdb npm test
+          DB_HOST=db DB_USER=uspostgreser DB_PASSWORD=khoukahajar DB_NAME=atelier
+           npm test
 
       - name: Scanner les vulnérabilités backend
         run: |
