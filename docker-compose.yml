@@ -1,0 +1,57 @@
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: express-backend
+    restart: always
+    volumes:
+      - ./backend:/app
+    environment:
+      - DB_HOST=db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=khoukahajar
+      - DB_NAME=atelier
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - Atelier-network
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vue-frontend
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    networks:
+      - Atelier-network
+
+  db:
+    image: postgres:17.4
+    container_name: postgres-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=khoukahajar
+      - POSTGRES_DB=atelier
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - Atelier-network
+
+volumes:
+  pgdata:
+
+networks:
+  Atelier-network: 
+  driver: bridge 
+
+
+    
