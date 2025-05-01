@@ -23,7 +23,7 @@ export default  (Sequelize,DataTypes)=>{
   },
   {
     tableName: 'user_skill',  
-    timestamps: true  
+    timestamps: false  
 
  });
   //definir les relations Nb que Cette méthode sera appelée par Sequelize plus tard pour connecter ce modèle aux autres.

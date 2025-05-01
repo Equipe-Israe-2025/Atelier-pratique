@@ -18,7 +18,7 @@ export default  (Sequelize,DataTypes)=>{
   },
   {
     tableName: 'user',  //precise  le nom exact de la table dans PostgreSQL 
-    timestamps: true  // pas creer les 2col createdAt et updateAt
+    timestamps: false  // pas creer les 2col createdAt et updateAt
 
  });
   //definir les relations Nb que Cette méthode sera appelée par Sequelize plus tard pour connecter ce modèle aux autres.

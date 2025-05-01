@@ -1,6 +1,6 @@
 import db from '../sync.js';
 
-//const { user, user_skill, skill } = db;
+const { user, user_skill, skill } = db;
 
 
 export async function createUser(data) {
